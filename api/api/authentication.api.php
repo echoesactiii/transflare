@@ -81,3 +81,26 @@ class Authentication extends Resource {
 			return $response;
 		}
 	}
+
+	// ** This is not an API endpoint, this is used internally by other API endpoints. ** //
+	/* Purpose: Validate the authenticity of a token. */
+	function fromToken($authToken){
+		global $config;
+
+		if(!$authToken){ throw new AuthenticationFailedException(); }
+
+		$JWT = new JWT();
+		try{
+			$token = $JWT->decode($authToken, $config['security']['encrypt_key']);
+		}catch(\Exception $e){
+			throw new AuthenticationFailedException("Token could not be decoded.");
+		}
+
+		$dbToken = R::findOne('session', 'jti = :jti', array(':jti' => $token->jti));
+
+		if($dbToken->destroyed == false && $dbToken->iat < time()){
+			return($token);
+		}else{
+			throw new AuthenticationFailedException("Token destroyed invalid.");
+		}
+	}
