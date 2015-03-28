@@ -9,4 +9,7 @@ $config['sql']['database'] = "transflare"; // MySQL Database name
 // Web Settings
 $config['web']['base_url'] = "/"; // Base URL for API requests
 
+// Token encryption settings
+$config['security']['encrypt_key'] = "your.token/encryption!key@here";
+
 ?>
