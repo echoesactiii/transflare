@@ -1,6 +1,6 @@
 # TransFlare
 
-A bat signal for marginal groups - if you find in trouble, use this application to call for help.
+A bat signal for marginal groups - if you find yourself in trouble, use this application to call for help.
 
 Things we're thinking about
 
