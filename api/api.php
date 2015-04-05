@@ -6,8 +6,6 @@ require 'include/jwt/JWT.php'; // include JWT framework
 require 'exceptions.php'; // include namespace exceptions
 require 'config.inc.php'; // include setttings & configuration file
 
-class R extends RedBean_Facade {}
-
 R::setup('mysql:host='.$config['sql']['server'].';dbname='.$config['sql']['database'], $config['sql']['username'], $config['sql']['password']);
 
 $app = new Tonic\Application(array(
