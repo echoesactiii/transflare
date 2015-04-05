@@ -7,7 +7,7 @@ $config['sql']['password'] = "root"; // MySQL Password
 $config['sql']['database'] = "transflare"; // MySQL Database name
 
 // Web Settings
-$config['web']['base_url'] = "/"; // Base URL for API requests
+$config['web']['base_url'] = "/api/"; // Base URL for API requests
 
 // Token encryption settings
 $config['security']['encrypt_key'] = "your.token/encryption!key@here";
