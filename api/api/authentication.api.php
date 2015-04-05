@@ -42,6 +42,7 @@ class Authentication extends Resource {
 
 	/**
 	 * @method POST
+	 * @accepts application/json
 	 * Purpose: Authenticate user & return session token.
 	 */
 	function post(){
@@ -123,6 +124,7 @@ class Register extends Resource {
 
 	/**
 	 * @method POST
+	 * @accepts application/json
 	 * Purpose: Register a user & return session token.
 	 */
 	function post(){
@@ -178,5 +180,6 @@ class Register extends Resource {
 		}catch(IncompleteRequestException $e){
 			$response->code = 400;
 			$response->body = json_encode(array("error" => $e->getMessage()));
-			
+		}
+	}
 }
