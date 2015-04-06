@@ -12,6 +12,8 @@ R::setup('mysql:host='.$config['sql']['server'].';dbname='.$config['sql']['datab
 $app = new Slim\Slim();
 
 // FIXME: If request body is empty/not JSON, an Exception will be thrown when property_exists() is called.
+// TODO: Handle OPTIONS requests for AJAX.
+// TODO: Output CORS headers.
 
 include("api/authentication.api.php");
 
