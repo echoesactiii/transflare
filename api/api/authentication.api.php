@@ -27,6 +27,7 @@ $app->post('/register', function() use ($app){
 		$user->username = $requestData->username;
 		$user->password = sha1($requestData->password);
 		$user->email = $requestData->email;
+		$user->isHelper = false;
 		$uid = R::store($user);
 
 		$user = R::load("user", $uid);
