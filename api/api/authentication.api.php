@@ -61,6 +61,8 @@ $app->get("/authentication", function () use ($app){
 
 	try{
 		$user = fromToken($app->request->headers->get('X-Token'));
+
+		$user->avatar = "https://www.gravatar.com/avatar/".md5(strtolower(trim($user->email)))."?d=mm&rating=pg";
 	
 		echo json_encode($user);
 	}catch(AuthenticationFailedException $e){
