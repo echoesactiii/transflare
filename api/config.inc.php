@@ -1,7 +1,7 @@
 <?php
 
 // SQL Settings
-$config['sql']['server'] = "localhost"; // MySQL Server
+$config['sql']['server'] = "127.0.0.1"; // MySQL Server
 $config['sql']['username'] = "root"; // MySQL Username
 $config['sql']['password'] = "root"; // MySQL Password
 $config['sql']['database'] = "transflare"; // MySQL Database name
