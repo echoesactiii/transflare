@@ -11,6 +11,8 @@ R::setup('mysql:host='.$config['sql']['server'].';dbname='.$config['sql']['datab
 \Slim\Slim::registerAutoloader();
 $app = new Slim\Slim();
 
+// FIXME: If request body is empty/not JSON, an Exception will be thrown when property_exists() is called.
+
 include("api/authentication.api.php");
 
 $app->run();
