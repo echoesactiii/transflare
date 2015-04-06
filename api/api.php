@@ -16,6 +16,10 @@ $app = new Slim\Slim();
 // TODO: Output CORS headers.
 
 include("api/authentication.api.php");
+include("api/flare.api.php");
+include("api/helpers.api.php");
+include("api/location.api.php");
+include("api/messages.api.php");
 
 $app->run();
 
