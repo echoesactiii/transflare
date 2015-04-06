@@ -15,12 +15,12 @@ $app->post('/register', function() use ($app){
 		}
 
 		$user = R::findOne("user", "username = :username", array(":username" => $requestData->username));
-		if($user->id){
+		if($user){
 			throw new UnableToComplyException("That username is already taken. Please choose another username.");
 		}
 
 		$user = R::findOne("user", "email = :email", array(":email" => $requestData->email));
-		if($user->id){
+		if($user){
 			throw new UnableToComplyException("That email address is already registered. Please login instead.");
 		}
 
@@ -29,7 +29,7 @@ $app->post('/register', function() use ($app){
 		$user = R::dispense("user");
 		$user->username = $requestData->username;
 		$user->password = sha1($requestData->password);
-		$user->email = $requestData->password;
+		$user->email = $requestData->email;
 		$uid = R::store($user);
 
 		$user = R::load("user", $uid);
